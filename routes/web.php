@@ -17,5 +17,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::view('/', 'master');
+Route::get('/', 'FrontController@index')->name('home');
 Route::get('test', 'FrontController@test');
+Route::post('book', 'FrontController@book');
+Route::get('otp', 'FrontController@otp')->name('otp');
+Route::post('otp', 'FrontController@otpSave');

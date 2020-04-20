@@ -3167,7 +3167,8 @@ var SEMICOLON = SEMICOLON || {};
 
 			$ajaxForm.each( function(){
 				var element = $(this),
-					elementForm = element.find('form'),
+					// elementForm = element.find('form'),
+					elementForm = element.find('formform'),
 					elementFormId = elementForm.attr('id'),
 					elementAlert = element.attr('data-alert-type'),
 					elementLoader = element.attr('data-loader'),
@@ -3180,7 +3181,8 @@ var SEMICOLON = SEMICOLON || {};
 					$body.addClass( elementFormId + '-ready' );
 				}
 
-				element.find('form').validate({
+				// element.find('form').validate({
+				element.find('formform').validate({
 					errorPlacement: function(error, elementItem) {
 						if( elementItem.parents('.form-group').length > 0 ) {
 							error.appendTo( elementItem.parents('.form-group') );
@@ -3210,6 +3212,7 @@ var SEMICOLON = SEMICOLON || {};
 							target: elementResult,
 							dataType: 'json',
 							success: function( data ) {
+
 								if( elementLoader == 'button' ) {
 									defButton.html( defButtonText );
 								} else {
