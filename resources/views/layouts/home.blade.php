@@ -36,7 +36,8 @@
 										<h2 class="car-rent-price h1 t600">10,000 MMK</h2>
 										<div class="line line-sm"></div>
 										<ul class="iconlist mb-0">
-											<li class="h6 pb-1"><i class="icon-line-circle-check"></i> Get the cut that'll suit you best at the comfort of your home. Don't worry, we clean up after the service & leave your place spic & span.</li>
+                                            <li class="h6 pb-1"><i class="icon-line-circle-check"></i> Get the cut that'll suit you best at the comfort of your home.</li>
+                                            <li class="h6 pb-1"><i class="icon-line-circle-check"></i> Don't worry, we clean up after the service & leave your place spic & span.</li>
                                             <li class="h6 pb-1"><i class="icon-line-circle-check"></i> Approximate Service Duration - 60 Mins</li>
                                             <li class="h6"><i class="icon-line-circle-check"></i> No need to pay transportation charges</li>
 											<li class="h6 pb-1"><i class="icon-line-circle-check"></i> Cancel at Any Time, Free of Charge</li>
@@ -93,19 +94,17 @@
                                     <div class="col-md-6 form-group">
                                         <label for="car-rental-pickup-date">Book Date<small class="text-danger">*</small></label>
                                         
-                                        <input type="text" name="date" value="" class="form-control tleft default" placeholder="Select Book Date" required>
+                                        <input type="text" name="date" value="" class="form-control tleft default book_date" placeholder="Select Book Date" required>
 
                                         {{-- <input type="text" name="date" id="car-rental-pickup-date" class="form-control input-datepicker tleft disabled-week required" value="" placeholder="Select Book Date" required> --}}
                                     </div>
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group book_time">
                                         <label for="car-rental-dropoff-date">Book Time<small class="text-danger">*</small></label>
                                         <select class="form-control" id="exampleFormControlSelect1" name="time" required>
                                             <option value="">Select Book Time</option>
-                                            <option value="9:00 - 10:30">9:00 - 11:00</option>
-                                            <option value="10:30 - 12:00">11:00 - 01:00</option>
-                                            <option value="12:00 - 1:30">01:00 - 03:00</option>
-                                            <option value="3:00 - 4:30">03:00 - 05:00</option>
-                                            <option value="3:00 - 4:30">05:00 - 07:00</option>
+                                            @foreach ($times as $time)
+                                                <option value="{{$time->id}}">{{$time->time}}</option>    
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -182,8 +181,8 @@
 
 				</div>
 
-			</div>
-
+            </div>
+            
 		</section><!-- #content end -->    
 @endsection
 @push('javascript')
@@ -214,6 +213,28 @@
         // $('#car-rental').on( 'formSubmitSuccess', function(){
         // 	carValue.html( '$0' );
         // });
+
+        $('.book_time').hide();
+
+        $(document).on('change', '.book_date', function(){
+            
+            $('.book_time').show();
+            $("#exampleFormControlSelect1 option:selected").prop('selected',false);
+            $("#exampleFormControlSelect1 option").removeAttr('disabled');
+            
+            $.ajax({
+                method: 'get',
+                url: '{{ url('/change-time') }}',
+                data: {date: $(this).val()},
+                success: function (res) {
+                    res.forEach(val => {
+                        if (val['total'] > 5) {
+                            $("#exampleFormControlSelect1 option[value=" + val['time_id'] + "]").attr('disabled','disabled');
+                        }
+                    });
+                }
+            });
+        });
 
     });
 

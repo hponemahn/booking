@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-    protected $fillable = ['user_id', 'services', 'date', 'time', 'message'];
+    protected $fillable = ['user_id', 'is_confirm', 'nexmo_request_id', 'services', 'date', 'time_id', 'message'];
     protected $table = 'bookings';
 }

@@ -7,12 +7,15 @@ use Nexmo;
 use App\User;
 use App\Book;
 use App\Township;
+use App\Time;
+use DB;
 
 class FrontController extends Controller
 {
     public function index () {
         $townships = Township::select('id', 'township')->get();
-        return view('layouts.home', compact('townships'));
+        $times = Time::select('id', 'time')->get();
+        return view('layouts.home', compact('townships', 'times'));
     }
 
     public function book (Request $request) {
@@ -45,9 +48,10 @@ class FrontController extends Controller
 
         Book::create([
            'user_id' => $user->id,
+           'nexmo_request_id' => $verification->getRequestId(),
            'services' => $request['service'],
            'date' => $request['date'],
-           'time' => $request['time'],
+           'time_id' => $request['time'],
            'message' => $request['message'],
         ]);
 
@@ -69,6 +73,10 @@ class FrontController extends Controller
                 $verification,
                 $request['code']
             );
+
+            Book::where('nexmo_request_id', $request_id)->update([
+                'is_confirm' => 1,
+            ]);
             
             $request->session()->forget('nexmo_request_id');
 
@@ -105,5 +113,14 @@ class FrontController extends Controller
         ]]);
 
         return redirect('otp')->with('status', 'Changed phone number successfully');
+    }
+
+    public function test () {
+        return Book::select('time_id', 'date', DB::raw('count(*) as total'))->where([['is_confirm', 1], ['date', '23/04/2020']])->groupBy('time_id', 'date')->get();
+    }
+
+    public function changeTime(Request $request)
+    {
+        return $timeTotal = Book::select('time_id', 'date', DB::raw('count(*) as total'))->where([['is_confirm', 1], ['date', $request->date]])->groupBy('time_id', 'date')->get();
     }
 }

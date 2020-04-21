@@ -24,3 +24,4 @@ Route::view('otp', 'layouts.otp')->name('otp');
 Route::post('otp', 'FrontController@otpSave');
 Route::view('change', 'layouts.change');
 Route::post('change', 'FrontController@change');
+Route::get('change-time', 'FrontController@changeTime');
