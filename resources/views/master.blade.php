@@ -16,9 +16,6 @@
 	<link rel="stylesheet" href="{{ asset('css/animate.css') }}" type="text/css" />
 	<link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}" type="text/css" />
 
-	<!-- DatePicker CSS -->
-	<link rel="stylesheet" href="{{ asset('css/components/datepicker.css') }}" type="text/css" />
-
 	<link rel="stylesheet" href="{{ asset('css/responsive.css') }}" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -153,45 +150,11 @@
 	<script src="{{ asset('js/jquery.js') }}"></script>
 	<script src="{{ asset('js/plugins.js') }}"></script>
 
-	<!-- DatePicker JS -->
-	<script src="{{ asset('js/components/datepicker.js') }}"></script>
-
 	<!-- Footer Scripts
 	============================================= -->
 	<script src="{{ asset('js/functions.js') }}"></script>
 
-	<script>
-        
-		jQuery(document).ready( function(){
-
-			$('.input-daterange').datepicker({
-				format: 'dd/mm/yyyy',
-				autoclose: true,
-				startDate: "today",
-				// todayHighlight: true
-				endDate: "+6d"
-				// datesDisabled: ["16/04/2020"]
-			});
-
-			var pricingCAR = 0,
-				carValue = $( ".car-rent-price" ),
-				cars = $( 'input[name="car-rental-selected-car"]' );
-	
-	
-			cars.change(function(){
-				pricingCAR = $(this).attr('data-price');
-				carValue.html( '$'+pricingCAR );
-			});
-	
-			// $('#car-rental').on( 'formSubmitSuccess', function(){
-			// 	carValue.html( '$0' );
-			// });
-	
-		});
-	
-	</script>
-    
-	@yield('javascript')
+	@stack('javascript')
 	
 </body>
 </html>

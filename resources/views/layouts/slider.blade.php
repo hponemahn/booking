@@ -217,7 +217,7 @@
 
 </section>
 
-@section('javascript')
+@push('javascript')
     <script>
         jQuery(window).on( 'load', function(){
 			var swiperParent = new Swiper('.swiper-parent',{
@@ -284,4 +284,4 @@
 			});
         });
     </script>
-@endsection
+@endpush

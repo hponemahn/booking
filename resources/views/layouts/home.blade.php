@@ -1,32 +1,7 @@
 @extends('master')
 @section('css')
-    <style>
-        .form-group > label.error {
-            display: block !important;
-            text-transform: none;
-        }
-
-        .form-group input.valid ~ label.error,
-        .form-group input[type="text"] ~ label.error,
-        .form-group input[type="email"] ~ label.error,
-        .form-group input[type="number"] ~ label.error,
-
-        .form-group select ~ label.error { display: none !important; }
-
-        .car-list .car-image [type=radio] { margin-right: 4px; }
-
-        .car-list .car-image div {
-            background-color: #F5F5F5;
-            padding: 12px;
-            margin-left: 8px;
-        }
-
-        .car-list .car-image img {
-            display: block;
-            margin-top: 10px;
-        }
-
-    </style>
+    <!-- DatePicker CSS -->
+	<link rel="stylesheet" href="{{ asset('css/components/datepicker.css') }}" type="text/css" />    
 @endsection
 @section('content')
 
@@ -211,3 +186,36 @@
 
 		</section><!-- #content end -->    
 @endsection
+@push('javascript')
+<!-- DatePicker JS -->
+<script src="{{ asset('js/components/datepicker.js') }}"></script>
+<script>
+    jQuery(document).ready( function(){
+
+        $('.input-daterange').datepicker({
+            format: 'dd/mm/yyyy',
+            autoclose: true,
+            startDate: "today",
+            // todayHighlight: true
+            endDate: "+6d"
+            // datesDisabled: ["16/04/2020"]
+        });
+
+        var pricingCAR = 0,
+            carValue = $( ".car-rent-price" ),
+            cars = $( 'input[name="car-rental-selected-car"]' );
+
+
+        cars.change(function(){
+            pricingCAR = $(this).attr('data-price');
+            carValue.html( '$'+pricingCAR );
+        });
+
+        // $('#car-rental').on( 'formSubmitSuccess', function(){
+        // 	carValue.html( '$0' );
+        // });
+
+    });
+
+</script>
+@endpush
