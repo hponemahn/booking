@@ -32,6 +32,15 @@
 
     @include('layouts.slider')
 
+    @if (session('status'))
+        <a href="#" id="alert" class="btn btn-secondary" data-notify-position="top-right" data-notify-type="success" data-notify-msg="{{ session('status') }}" style="display:none;"></a>
+        <script>
+            window.onload = function () {
+                SEMICOLON.widget.notifications('#alert'); return false;
+            };
+        </script>
+    @endif
+
     <!-- Content
 		============================================= -->
 		<section id="content">
@@ -108,17 +117,20 @@
                                     
                                     <div class="col-md-6 form-group">
                                         <label for="car-rental-pickup-date">Book Date<small class="text-danger">*</small></label>
-                                        <input type="text" name="date" id="car-rental-pickup-date" class="form-control input-datepicker tleft disabled-week required" value="" placeholder="Select Book Date" required>
+                                        
+                                        <input type="text" name="date" value="" class="form-control tleft default" placeholder="Select Book Date" required>
+
+                                        {{-- <input type="text" name="date" id="car-rental-pickup-date" class="form-control input-datepicker tleft disabled-week required" value="" placeholder="Select Book Date" required> --}}
                                     </div>
                                     <div class="col-md-6 form-group">
                                         <label for="car-rental-dropoff-date">Book Time<small class="text-danger">*</small></label>
                                         <select class="form-control" id="exampleFormControlSelect1" name="time" required>
                                             <option value="">Select Book Time</option>
-                                            <option value="9:00 - 10:30">9:00 - 10:30</option>
-                                            <option value="10:30 - 12:00">10:30 - 12:00</option>
-                                            <option value="12:00 - 1:30">12:00 - 1:30</option>
-                                            <option value="1:30 - 3:00">1:30 - 3:00</option>
-                                            <option value="3:00 - 4:30">3:00 - 4:30</option>
+                                            <option value="9:00 - 10:30">9:00 - 11:00</option>
+                                            <option value="10:30 - 12:00">11:00 - 01:00</option>
+                                            <option value="12:00 - 1:30">01:00 - 03:00</option>
+                                            <option value="3:00 - 4:30">03:00 - 05:00</option>
+                                            <option value="3:00 - 4:30">05:00 - 07:00</option>
                                         </select>
                                     </div>
                                 </div>

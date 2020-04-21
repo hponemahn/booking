@@ -20,5 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'FrontController@index')->name('home');
 Route::get('test', 'FrontController@test');
 Route::post('book', 'FrontController@book');
-Route::get('otp', 'FrontController@otp')->name('otp');
+Route::view('otp', 'layouts.otp')->name('otp');
 Route::post('otp', 'FrontController@otpSave');
+Route::view('change', 'layouts.change');
+Route::post('change', 'FrontController@change');

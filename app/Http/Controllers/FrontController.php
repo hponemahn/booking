@@ -10,31 +10,6 @@ use App\Township;
 
 class FrontController extends Controller
 {
-    // public function test () {
-    //     $basic  = new \Nexmo\Client\Credentials\Basic('da5a369c', 'BbNiUlQnIzYCXmQ3');
-    //     $client = new \Nexmo\Client($basic);
-    //     $res = "";
-
-    //     try {
-    //         $message = $client->message()->send([
-    //             'to' => '959777425147',
-    //             'from' => 'BarBerX',
-    //             'text' => 'BarBerX code:'
-    //         ]);
-    //         $response = $message->getResponseData();
-        
-    //         if($response['messages'][0]['status'] == 0) {
-    //             $res = "The message was sent successfully\n";
-    //         } else {
-    //             $res = "The message failed with status: " . $response['messages'][0]['status'] . "\n";
-    //         }
-    //     } catch (Exception $e) {
-    //         $res = "The message was not sent. Error: " . $e->getMessage() . "\n";
-    //     }
-
-    //     return $res;
-    // }
-
     public function index () {
         $townships = Township::select('id', 'township')->get();
         return view('layouts.home', compact('townships'));
@@ -42,21 +17,31 @@ class FrontController extends Controller
 
     public function book (Request $request) {
 
-        // $verification = Nexmo::verify()->start([
-        //     'number' => $request['number'],
-        //     'brand' => 'Verification',
-        //     'code_length'  => '4'
-        // ]);
+        $verification = Nexmo::verify()->start([
+            'number' => $request['number'],
+            'brand' => 'BarBerX code:',
+            'code_length'  => '4'
+        ]);
 
-        // session(['nexmo_request_id' => $verification->getRequestId(), 'number' => $request['number']]);
-
-        $user = User::create([
+        $user = User::where('phone_number', $request['number'])->update([
             'name' => $request['name'],
             'email' => $request['email'],
             'phone_number' => $request['number'],
             'township_id' => $request['township'],
             'address' => $request['address'],
         ]);
+
+        if ($user == 0) {
+            $user = User::create([
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'phone_number' => $request['number'],
+                'township_id' => $request['township'],
+                'address' => $request['address'],
+            ]);
+        } else {
+            $user = User::where('phone_number', $request['number'])->select('id')->first();
+        }
 
         Book::create([
            'user_id' => $user->id,
@@ -66,27 +51,59 @@ class FrontController extends Controller
            'message' => $request['message'],
         ]);
 
-        $number = $request['number'];
+        $request->session()->put([
+            'nexmo_request_id' => $verification->getRequestId(), 
+            'number' => $request['number']
+        ]);
 
-        return redirect('otp')->with('number', $request['number']);
-    }
-
-    public function otp () {
-        return view('layouts.otp');
+        return redirect('otp');
     }
 
     public function otpSave (Request $request) {
 
-        // $request_id = session('nexmo_request_id');
-        // $verification = new \Nexmo\Verify\Verification($request_id);
+        $request_id = $request->session()->get('nexmo_request_id');
+        $verification = new \Nexmo\Verify\Verification($request_id);
 
-        // Nexmo::verify()->check($verification, $request['code']);
+        try {
+            Nexmo::verify()->check(
+                $verification,
+                $request['code']
+            );
+            
+            $request->session()->forget('nexmo_request_id');
 
-        $date = date_create();
+            $date = date_create();
 
-        User::where('phone_number', $request['number'])->update(['phone_verified_at' => date_format($date, 'Y-m-d H:i:s')]);
+            User::where('phone_number', $request['number'])->update(['phone_verified_at' => date_format($date, 'Y-m-d H:i:s')]);
 
-        return redirect('/');
+            $request->session()->forget('number');
 
+            return redirect('/')->with('status', 'BOOKED SUCCESSFULLY! Thank you');
+
+        } catch (Nexmo\Client\Exception\Request $e) {
+            return redirect()->back()->withErrors([
+                'code' => "The verification code you entered was incorrect or expired"
+            ]);
+     
+        }
+    }
+
+    public function change (Request $request) {
+        User::where('phone_number', $request->session()->get('number'))->update(['phone_number' => $request['number']]);
+        $request->session()->forget('number');
+        $request->session()->forget('nexmo_request_id');
+
+        $verification = Nexmo::verify()->start([
+            'number' => $request['number'],
+            'brand' => 'BarBerX code:',
+            'code_length'  => '4'
+        ]);
+
+        $request->session()->put([
+            'nexmo_request_id' => $verification->getRequestId(), 
+            'number' => $request['number'
+        ]]);
+
+        return redirect('otp')->with('status', 'Changed phone number successfully');
     }
 }

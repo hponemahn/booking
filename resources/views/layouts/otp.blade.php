@@ -1,11 +1,24 @@
 @extends('master')
 @section('content')
 
-@if (session('number'))
-    <div class="alert alert-success">
-        {{ session('number') }}
-    </div>
-@endif
+    @if ($errors->has('code'))
+        <a href="#" id="alert" class="btn btn-secondary" data-notify-position="top-right" data-notify-type="error" data-notify-msg="{{ $errors->first('code') }}" style="display:none;"></a>
+        <script>
+            window.onload = function () {
+                SEMICOLON.widget.notifications('#alert'); return false;
+            };
+        </script>
+    @endif
+
+    @if (session('status'))
+        <a href="#" id="alert" class="btn btn-secondary" data-notify-position="top-right" data-notify-type="success" data-notify-msg="{{ session('status') }}" style="display:none;"></a>
+        <script>
+            window.onload = function () {
+                SEMICOLON.widget.notifications('#alert'); return false;
+            };
+        </script>
+    @endif
+
 
     <!-- Content
 		============================================= -->
@@ -14,6 +27,7 @@
             <div class="container clearfix">
                 <div class="form-widget">
                     <div class="form-result"></div>
+                    <h3 style="text-align: center;">We sent a verification code to @if (session('number')){{ session('number') }}@endif. <a href="{{ url('change') }}">Change?</a></h3>
                     <div class="row">
                         <div class="col-lg-12">
                             <form id="car-rental" class="row" action="{{ url('otp') }}" method="post" enctype="multipart/form-data">
