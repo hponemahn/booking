@@ -116,7 +116,7 @@ class FrontController extends Controller
     }
 
     public function test () {
-        return Book::select('time_id', 'date', DB::raw('count(*) as total'))->where([['is_confirm', 1], ['date', '23/04/2020']])->groupBy('time_id', 'date')->get();
+        return Book::select('time_id', 'date', DB::raw('count(*) as total'))->where([['is_confirm', 1]])->groupBy('time_id', 'date')->orderBy('date', 'asc')->get();
     }
 
     public function changeTime(Request $request)

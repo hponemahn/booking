@@ -25,3 +25,7 @@ Route::post('otp', 'FrontController@otpSave');
 Route::view('change', 'layouts.change');
 Route::post('change', 'FrontController@change');
 Route::get('change-time', 'FrontController@changeTime');
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
