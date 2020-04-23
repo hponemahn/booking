@@ -15,6 +15,7 @@ use TCG\Voyager\Events\BreadDataUpdated;
 use TCG\Voyager\Events\BreadImagesDeleted;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
+use App\Book;
 
 class BookingController extends VoyagerBaseController
 {
@@ -192,5 +193,9 @@ class BookingController extends VoyagerBaseController
             'showSoftDeleted',
             'showCheckboxColumn'
         ));
+    }
+
+    public function changeDone (Request $request) {
+        Book::where('id', $request->id)->update(['is_done' => $request->isCheck == 'true' ? 1 : 0]);
     }
 }
