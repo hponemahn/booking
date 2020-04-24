@@ -36,18 +36,18 @@ class FrontController extends Controller
 
     public function book (Request $request) {
 
-        return $number = "95" . substr($request['number'],1);
+        $number = "95" . substr($request['number'],1);
 
         $verification = Nexmo::verify()->start([
-            'number' => $request['number'],
+            'number' => $number,
             'brand' => 'BarBerX verification:',
             'code_length'  => '4'
         ]);
 
-        $user = User::where('phone_number', $request['number'])->update([
+        $user = User::where('phone_number', $number)->update([
             'name' => $request['name'],
             'email' => $request['email'],
-            'phone_number' => $request['number'],
+            'phone_number' => $number,
             'township_id' => $request['township'],
             'address' => $request['address'],
         ]);
@@ -56,12 +56,12 @@ class FrontController extends Controller
             $user = User::create([
                 'name' => $request['name'],
                 'email' => $request['email'],
-                'phone_number' => $request['number'],
+                'phone_number' => $number,
                 'township_id' => $request['township'],
                 'address' => $request['address'],
             ]);
         } else {
-            $user = User::where('phone_number', $request['number'])->select('id')->first();
+            $user = User::where('phone_number', $number)->select('id')->first();
         }
 
         Book::create([
@@ -76,7 +76,7 @@ class FrontController extends Controller
 
         $request->session()->put([
             'nexmo_request_id' => $verification->getRequestId(), 
-            'number' => $request['number']
+            'number' => $number
         ]);
 
         return redirect('otp');
