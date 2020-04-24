@@ -117,7 +117,7 @@
                             
                             <div class="col-md-6 form-group">
                                 <label for="car-rental-contact">Contact Number<small class="text-danger">*</small></label>
-                                <input type="number" name="number" id="car-rental-contact" class="form-control required" value="" placeholder="Enter your contact Number" required>
+                                <input type="number" name="number" id="car-rental-contact" class="form-control required" value="" placeholder="09999999999" required>
                             </div>
                             
                             <div class="col-md-6 form-group">

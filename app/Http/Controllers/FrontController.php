@@ -36,9 +36,11 @@ class FrontController extends Controller
 
     public function book (Request $request) {
 
+        return $number = "95" . substr($request['number'],1);
+
         $verification = Nexmo::verify()->start([
             'number' => $request['number'],
-            'brand' => 'BarBerX code:',
+            'brand' => 'BarBerX verification:',
             'code_length'  => '4'
         ]);
 
@@ -148,7 +150,7 @@ class FrontController extends Controller
 
         $verification = Nexmo::verify()->start([
             'number' => $request['number'],
-            'brand' => 'BarBerX code:',
+            'brand' => 'BarBerX verification:',
             'code_length'  => '4'
         ]);
 
