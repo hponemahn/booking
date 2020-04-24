@@ -10,6 +10,7 @@ use App\Township;
 use App\Time;
 use DB;
 use App\DisabledDay;
+use App\DisabledCount;
 
 class FrontController extends Controller
 {
@@ -64,6 +65,7 @@ class FrontController extends Controller
         Book::create([
            'user_id' => $user->id,
            'nexmo_request_id' => $verification->getRequestId(),
+        //    'nexmo_request_id' => 7,
            'services' => $request['service'],
            'date' => $request['date'],
            'time_id' => $request['time'],
@@ -89,10 +91,38 @@ class FrontController extends Controller
                 $request['code']
             );
 
-            Book::where('nexmo_request_id', $request_id)->update([
+
+            $book = tap(Book::where('nexmo_request_id', $request_id))->update([
                 'is_confirm' => 1,
-            ]);
-            
+            ])->first();
+
+            // $book = tap(Book::where('nexmo_request_id', 7))->update([
+            //     'is_confirm' => 1,
+            // ])->first();
+
+            $disabledCount = DisabledCount::where([['day', $book->date], ['time_id', $book->time_id]])->get();
+
+            if (count($disabledCount) == 0) {
+                DisabledCount::create([
+                    'day' => $book->date, 
+                    'time_id' => $book->time_id, 
+                    'count' => DB::raw('count+1'),
+                ]);
+            } else {
+                if ($disabledCount[0]->count < 5) {
+                    DisabledCount::where([['day', $book->date], ['time_id', $book->time_id]])->update([
+                        'day' => $book->date, 
+                        'time_id' => $book->time_id, 
+                        'count' => DB::raw('count+1'),
+                    ]);
+
+                    $totalCount = DisabledCount::where('day', $book->date)->select('day', DB::raw("SUM(count) as total_count"))->groupBy('day')->get();
+                    if ($totalCount[0]->total_count == 25) {
+                        DisabledDay::create(['day' => $book->date]);
+                    }
+                } 
+            }
+                
             $request->session()->forget('nexmo_request_id');
 
             $date = date_create();
