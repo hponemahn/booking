@@ -9,13 +9,28 @@ use App\Book;
 use App\Township;
 use App\Time;
 use DB;
+use App\DisabledDay;
 
 class FrontController extends Controller
 {
     public function index () {
+
+        $disabledDays = [];
+        for ($i=0; $i < 7; $i++) { 
+            $date = strtotime("+" . $i . " day");
+            $disabledDays[] = date('d/m/Y', $date);
+        }
+        
+        $disDays = DisabledDay::select('day')->whereIn('day', $disabledDays)->get();
+
+        $disabledDays = [];
+        foreach ($disDays as $disDay) {
+            $disabledDays[] = $disDay->day;
+        }
+
         $townships = Township::select('id', 'township')->get();
         $times = Time::select('id', 'time')->get();
-        return view('layouts.home', compact('townships', 'times'));
+        return view('layouts.home', compact('townships', 'times', 'disabledDays'));
     }
 
     public function book (Request $request) {

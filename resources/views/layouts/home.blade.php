@@ -132,10 +132,6 @@
                                     @foreach ($townships as $township)
                                     <option value="{{$township->id}}">{{$township->township}}</option>    
                                     @endforeach
-                                    
-                                    {{-- <option value="bahan">Bahan</option>
-                                    <option value="insein">Insein</option>
-                                    <option value="ahlone">Ahlone</option> --}}
                                 </select>
                             </div>
                             
@@ -191,13 +187,16 @@
 <script>
     jQuery(document).ready( function(){
 
+        var disabledDays = {!! json_encode($disabledDays) !!};
+
         $('.input-daterange').datepicker({
             format: 'dd/mm/yyyy',
             autoclose: true,
             startDate: "today",
-            // todayHighlight: true
-            endDate: "+6d"
+            // todayHighlight: true,
+            endDate: "+6d",
             // datesDisabled: ["16/04/2020"]
+            datesDisabled: disabledDays
         });
 
         var pricingCAR = 0,
