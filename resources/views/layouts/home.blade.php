@@ -33,7 +33,7 @@
 								<div class="card bg-light topmargin-sm">
 									<div class="card-body">
 										<h4 class="mb-3 d-block">Your Price</h4>
-										<h2 class="car-rent-price h1 t600">10,000 MMK</h2>
+										<h2 class="car-rent-price h1 t600">20,000 MMK</h2>
 										<div class="line line-sm"></div>
 										<ul class="iconlist mb-0">
                                             <li class="h6 pb-1"><i class="icon-line-circle-check"></i> Get the cut that'll suit you best at the comfort of your home.</li>

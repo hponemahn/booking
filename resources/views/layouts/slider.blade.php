@@ -4,7 +4,7 @@
 
         <div class="swiper-container swiper-parent">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/7.jpg') center center; background-size:cover;">
+                <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/7.jpeg') center center; background-size:cover;">
                     {{-- <a href="#">
                         <div class="overlay">
                             <div class="text-overlay">
@@ -19,7 +19,7 @@
                 <div class="swiper-slide">
                     <div class="swiper-container swiper-nested-1">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/2.jpg') center center; background-size:cover;">
+                            <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/2.jpeg') center center; background-size:cover;">
                                 {{-- <a href="#">
                                     <div class="overlay">
                                         <div class="text-overlay">
@@ -31,7 +31,7 @@
                                     <span class="i-overlay nobg on-hover"><img src="images/icons/image.png" alt="Image"></span>
                                 </a> --}}
                             </div>
-                            <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/3.jpg') center center; background-size:cover;">
+                            <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/3.jpeg') center center; background-size:cover;">
                                 {{-- <a href="#">
                                     <div class="overlay">
                                         <div class="text-overlay">
@@ -43,7 +43,7 @@
                                     <span class="i-overlay nobg on-hover"><img src="images/icons/image.png" alt="Image"></span>
                                 </a> --}}
                             </div>
-                            <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/1.jpg') center center; background-size:cover;">
+                            <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/1.jpeg') center center; background-size:cover;">
                                 {{-- <a href="#">
                                     <div class="overlay">
                                         <div class="text-overlay">
@@ -55,7 +55,7 @@
                                     <span class="i-overlay nobg on-hover"><img src="images/icons/image.png" alt="Image"></span>
                                 </a> --}}
                             </div>
-                            <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/4.jpg') center center; background-size:cover;">
+                            <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/4.jpeg') center center; background-size:cover;">
                                 {{-- <a href="#">
                                     <div class="overlay">
                                         <div class="text-overlay">
@@ -67,7 +67,7 @@
                                     <span class="i-overlay nobg on-hover"><img src="images/icons/play.png" alt="Play"></span>
                                 </a> --}}
                             </div>
-                            <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/5.jpg') center center; background-size:cover;">
+                            <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/5.jpeg') center center; background-size:cover;">
                                 {{-- <a href="#">
                                     <div class="overlay">
                                         <div class="text-overlay">
@@ -84,7 +84,7 @@
                         <div id="sw1-arrow-bottom" class="slider-arrow-bottom-sm"><i class="icon-angle-down"></i></div>
                     </div>
                 </div>
-                <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/13.jpg') center center; background-size:cover;">
+                <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/13.jpeg') center center; background-size:cover;">
                     {{-- <a href="#">
                         <div class="overlay">
                             <div class="text-overlay">
@@ -99,7 +99,7 @@
                 <div class="swiper-slide">
                     <div class="swiper-container swiper-nested-2">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/10.jpg') center center; background-size:cover;">
+                            <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/10.jpeg') center center; background-size:cover;">
                                 {{-- <a href="#">
                                     <div class="overlay">
                                         <div class="text-overlay">
@@ -111,7 +111,7 @@
                                     <span class="i-overlay nobg on-hover"><img src="images/icons/image.png" alt="Image"></span>
                                 </a> --}}
                             </div>
-                            <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/14.jpg') center center; background-size:cover;">
+                            <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/14.jpeg') center center; background-size:cover;">
                                 {{-- <a href="#">
                                     <div class="overlay">
                                         <div class="text-overlay">
@@ -123,7 +123,7 @@
                                     <span class="i-overlay nobg on-hover"><img src="images/icons/image.png" alt="Image"></span>
                                 </a> --}}
                             </div>
-                            <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/16.jpg') center center; background-size:cover;">
+                            <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/16.jpeg') center center; background-size:cover;">
                                 {{-- <a href="#">
                                     <div class="overlay">
                                         <div class="text-overlay">
@@ -140,7 +140,7 @@
                         <div id="sw2-arrow-bottom" class="slider-arrow-bottom-sm"><i class="icon-angle-down"></i></div>
                     </div>
                 </div>
-                <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/12.jpg') center center; background-size:cover;">
+                <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/12.jpeg') center center; background-size:cover;">
                     {{-- <a href="#">
                         <div class="overlay">
                             <div class="text-overlay">
@@ -155,7 +155,7 @@
                 <div class="swiper-slide">
                     <div class="swiper-container swiper-nested-3">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/6.jpg') center center; background-size:cover;">
+                            <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/6.jpeg') center center; background-size:cover;">
                                 {{-- <a href="#">
                                     <div class="overlay">
                                         <div class="text-overlay">
@@ -167,7 +167,7 @@
                                     <span class="i-overlay nobg on-hover"><img src="images/icons/play.png" alt="Play"></span>
                                 </a> --}}
                             </div>
-                            <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/9.jpg') center center; background-size:cover;">
+                            <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/9.jpeg') center center; background-size:cover;">
                                 {{-- <a href="#">
                                     <div class="overlay">
                                         <div class="text-overlay">
@@ -196,7 +196,7 @@
                         <div id="sw3-arrow-bottom" class="slider-arrow-bottom-sm"><i class="icon-angle-down"></i></div>
                     </div>
                 </div>
-                <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/11.jpg') center center; background-size:cover;">
+                <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/11.jpeg') center center; background-size:cover;">
                     {{-- <a href="#">
                         <div class="overlay">
                             <div class="text-overlay">
