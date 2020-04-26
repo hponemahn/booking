@@ -96,7 +96,7 @@ class UserController extends VoyagerBaseController
             }
 
             // custom search
-            $query->where('phone_verified_at', '!=', '');
+            // $query->where('phone_verified_at', '!=', '');
 
             if ($orderBy && in_array($orderBy, $dataType->fields())) {
                 $querySortOrder = (!empty($sortOrder)) ? $sortOrder : 'desc';

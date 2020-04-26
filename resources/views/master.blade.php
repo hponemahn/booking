@@ -48,8 +48,8 @@
 					<!-- Logo
 					============================================= -->
 					<div id="logo">
-						<a href="index.html" class="standard-logo" data-dark-logo="{{ asset('images/logo-dark.png') }}"><img src="{{ asset('images/logo.png') }}" alt="Canvas Logo"></a>
-						<a href="index.html" class="retina-logo" data-dark-logo="{{ asset('images/logo-dark@2x.png') }}"><img src="{{ asset('images/logo@2x.png') }}" alt="Canvas Logo"></a>
+						<a href="index.html" class="standard-logo" data-dark-logo="{{ asset('images/logo-dark.png') }}"><img src="{{ asset('images/126x100.jpeg') }}" alt="Canvas Logo"></a>
+						<a href="index.html" class="retina-logo" data-dark-logo="{{ asset('images/logo-dark@2x.png') }}"><img src="{{ asset('images/250x200.jpeg') }}" alt="Canvas Logo"></a>
 					</div><!-- #logo end -->
 
 					<!-- Primary Navigation
@@ -57,7 +57,7 @@
 					<nav id="primary-menu">
 
 						<ul style="border-right: 0px;">
-                            <li><a href="#"><div>Call us - 09999999999</div></a></li>
+                            <li><a href="#"><div>Call us - 09750121423</div></a></li>
 						</ul>
 
 					</nav><!-- #primary-menu end -->
@@ -81,18 +81,18 @@
 				<div class="container clearfix">
 
 					<div class="col_half">
-						Copyrights &copy; 2020 All Rights Reserved by Hpone.<br>
+						Copyrights &copy; 2020 All Rights Reserved by Phone Mhan.<br>
 						<div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div>
 					</div>
 
 					<div class="col_half col_last tright">
 						<div class="fright clearfix">
-							<a href="#" class="social-icon si-small si-borderless si-facebook">
+							<a href="https://www.facebook.com/barberexpressmyanmar" target="_blank" class="social-icon si-small si-borderless si-facebook">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
 							</a>
 
-							<a href="#" class="social-icon si-small si-borderless si-twitter">
+							{{-- <a href="#" class="social-icon si-small si-borderless si-twitter">
 								<i class="icon-twitter"></i>
 								<i class="icon-twitter"></i>
 							</a>
@@ -125,12 +125,15 @@
 							<a href="#" class="social-icon si-small si-borderless si-linkedin">
 								<i class="icon-linkedin"></i>
 								<i class="icon-linkedin"></i>
-							</a>
+							</a> --}}
 						</div>
 
 						<div class="clear"></div>
 
-						<i class="icon-envelope2"></i> info@barberx.com <span class="middot">&middot;</span> <i class="icon-headphones"></i> +91-11-6541-6369 <span class="middot">&middot;</span> <i class="icon-skype2"></i> BarBerX
+						{{-- <i class="icon-envelope2"></i> info@barberx.com <span class="middot">&middot;</span>  --}}
+						<i class="icon-headphones"></i> 09750121423 
+						{{-- <span class="middot">&middot;</span>  --}}
+						{{-- <i class="icon-skype2"></i> BarBerX --}}
 					</div>
 
 				</div>

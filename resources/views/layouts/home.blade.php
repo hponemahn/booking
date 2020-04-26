@@ -94,7 +94,7 @@
                                     <div class="col-md-6 form-group">
                                         <label for="car-rental-pickup-date">Book Date<small class="text-danger">*</small></label>
                                         
-                                        <input type="text" name="date" value="" class="form-control tleft default book_date" placeholder="Select Book Date" required readonly>
+                                        <input type="text" name="date" value="" class="form-control tleft default book_date" placeholder="Select Book Date" required onkeydown="return false;">
 
                                         {{-- <input type="text" name="date" id="car-rental-pickup-date" class="form-control input-datepicker tleft disabled-week required" value="" placeholder="Select Book Date" required> --}}
                                     </div>
@@ -227,7 +227,7 @@
                 data: {date: $(this).val()},
                 success: function (res) {
                     res.forEach(val => {
-                        if (val['total'] > 5) {
+                        if (val['total'] >= 5) {
                             $("#exampleFormControlSelect1 option[value=" + val['time_id'] + "]").attr('disabled','disabled');
                         }
                     });
