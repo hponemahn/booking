@@ -40,7 +40,7 @@ class FrontController extends Controller
 
         $verification = Nexmo::verify()->start([
             'number' => $number,
-            'brand' => 'BarBerX verification:',
+            'brand' => 'BarBerX:',
             'code_length'  => '4'
         ]);
 
@@ -150,7 +150,7 @@ class FrontController extends Controller
 
         $verification = Nexmo::verify()->start([
             'number' => $request['number'],
-            'brand' => 'BarBerX verification:',
+            'brand' => 'BarBerX:',
             'code_length'  => '4'
         ]);
 
