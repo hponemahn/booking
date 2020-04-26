@@ -57,7 +57,7 @@
                                 <div class="row car-list btn-group">
                                     <label class="car-image pr-0 col-6 col-md-3">
                                         <div class="ml-0">
-                                            <input type="radio" name="service" class="required" id="car-rental-cars-creta" autocomplete="off" data-price="30" value="Cut" checked> Hair Cuts
+                                            <input type="radio" name="service" class="required" id="car-rental-cars-creta" autocomplete="off" data-price="30" value="Cut" checked> Hair Cut
                                             <img src="{{ asset('images/forms/car/1_400x171.jpg') }}" alt="">
                                         </div>
                                     </label>
@@ -78,7 +78,7 @@
                             
                                     <label class="car-image px-0 col-6 col-md-3" style="cursor: not-allowed;opacity: .6;">
                                         <div>
-                                            <input type="radio" name="service" class="required" id="car-rental-cars-i20" autocomplete="off" data-price="25" value="i20" disabled> Color Hair
+                                            <input type="radio" name="service" class="required" id="car-rental-cars-i20" autocomplete="off" data-price="25" value="i20" disabled> Hair Coloring
                                         <img src="{{ asset('images/forms/car/4_400x171.jpeg') }}" alt="">
                                         </div>
                                     </label>
