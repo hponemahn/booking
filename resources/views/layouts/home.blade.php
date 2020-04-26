@@ -32,18 +32,16 @@
 							<div class="col-lg-4 order-lg-1 mb-4">
 								<div class="card bg-light topmargin-sm">
 									<div class="card-body">
-										<h4 class="mb-3 d-block">Your Price</h4>
+										<h4 class="mb-3 d-block">Normal Price</h4>
 										<h2 class="car-rent-price h1 t600">20,000 MMK</h2>
-										<div class="line line-sm"></div>
+                                        <div class="line line-sm"></div>
+                                        <h6 class="mb-3 d-block">Family Package</h6>
 										<ul class="iconlist mb-0">
-                                            <li class="h6 pb-1"><i class="icon-line-circle-check"></i> Get the cut that'll suit you best at the comfort of your home.</li>
-                                            <li class="h6 pb-1"><i class="icon-line-circle-check"></i> Don't worry, we clean up after the service & leave your place spic & span.</li>
-                                            <li class="h6 pb-1"><i class="icon-line-circle-check"></i> Approximate Service Duration - 60 Mins</li>
-                                            <li class="h6"><i class="icon-line-circle-check"></i> No need to pay transportation charges</li>
-											<li class="h6 pb-1"><i class="icon-line-circle-check"></i> Cancel at Any Time, Free of Charge</li>
-											<li class="h6 pb-1"><i class="icon-line-circle-check"></i> Credit Card not required</li>
-											<li class="h6 pb-1"><i class="icon-line-circle-check"></i> Pay when you finished</li>
-										</ul>
+                                            <li class="h6 pb-1"><i class="icon-line-circle-check"></i> 2 person - 35,000 MMK</li>
+                                            <li class="h6 pb-1"><i class="icon-line-circle-check"></i> 3 person - 50,000 MMK</li>
+                                            <li class="h6 pb-1"><i class="icon-line-circle-check"></i> 4 person - 60,000 MMK</li>
+                                        </ul>   
+                                        <p class="mb-3 d-block">Note - Customers have to pay taxi fare (1 route).</p>
 									</div>
 								</div>
 							</div>
