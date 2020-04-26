@@ -81,8 +81,8 @@
 				<div class="container clearfix">
 
 					<div class="col_half">
-						Copyrights &copy; 2020 All Rights Reserved by Phone Mhan.<br>
-						<div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div>
+						Copyrights &copy; 2020 All Rights Reserved.<br>
+						<div class="copyright-links">Developed by <a href="https://www.facebook.com/hponemahn" target="_blank">Phone Mhan.</a></div>
 					</div>
 
 					<div class="col_half col_last tright">
