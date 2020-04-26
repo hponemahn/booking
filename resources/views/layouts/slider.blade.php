@@ -179,7 +179,7 @@
                                     <span class="i-overlay nobg on-hover"><img src="images/icons/image.png" alt="Image"></span>
                                 </a> --}}
                             </div>
-                            <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/17.jpg') center center; background-size:cover;">
+                            <div class="swiper-slide" style="background: url('images/slider/swiper/thumbs/17.jpeg') center center; background-size:cover;">
                                 {{-- <a href="#">
                                     <div class="overlay">
                                         <div class="text-overlay">
