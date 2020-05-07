@@ -33,6 +33,7 @@
                                         <th>Time</th>
                                         <th>Message</th>
                                         <th>Is Done</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,6 +57,13 @@
                                                 @endif>
                                             </div>
                                         </td>
+                                        
+                                        <td class="no-sort no-click" id="bread-actions">
+                                            <a href="javascript:;" title="Delete" class="btn btn-sm btn-danger pull-right delete" data-id="{{$book->id}}" id="delete-{{$book->id}}">
+                                            <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Delete</span>
+                                            </a>
+                                        </td>
+
                                     </tr>
                                     @endforeach
                                 </tbody>
