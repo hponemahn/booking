@@ -68,7 +68,7 @@
 					<nav id="primary-menu">
 
 						<ul style="border-right: 0px;">
-                            <li><a href="#"><div>Call us - 09750121423</div></a></li>
+                            <li><a href="#"><div>Call us - 09406656677</div></a></li>
 						</ul>
 
 					</nav><!-- #primary-menu end -->
@@ -142,7 +142,7 @@
 						<div class="clear"></div>
 
 						{{-- <i class="icon-envelope2"></i> info@barberx.com <span class="middot">&middot;</span>  --}}
-						<i class="icon-headphones"></i> 09750121423 
+						<i class="icon-headphones"></i> 09406656677 
 						{{-- <span class="middot">&middot;</span>  --}}
 						{{-- <i class="icon-skype2"></i> BarBerX --}}
 					</div>
