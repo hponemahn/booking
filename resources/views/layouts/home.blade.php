@@ -179,7 +179,7 @@
             
 		</section><!-- #content end -->    
 @endsection
-@push('javascript')
+@push('javascript') 
 <!-- DatePicker JS -->
 <script src="{{ asset('js/components/datepicker.js') }}"></script>
 <script>
